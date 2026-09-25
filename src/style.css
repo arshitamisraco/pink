@@ -1,0 +1,41 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  background: #000;
+  overflow: hidden;
+  font-family: system-ui, sans-serif;
+}
+
+#app {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* source video stays off-screen; canvas is what's shown */
+#webcam {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* canvas backing size is set in JS to match the viewport (window.innerWidth/
+   Height) every frame's worth of resize; the shader cover-crops the video
+   into it, so no letterboxing regardless of the camera's aspect ratio. */
+#gl {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+#hud {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  color: #9ff;
+  font-size: 13px;
+  text-shadow: 0 0 4px #000;
+  user-select: none;
+}
